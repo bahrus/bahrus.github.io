@@ -36,7 +36,7 @@
         <!-- If no id found in address bar, create a new record ("session") -->
         <p-d on="no-match-found" to="purr-sist[write]{new:target.noMatch}"  m="1" skip-init></p-d>
         <!-- If id found in address bar, pass it to the persistence reader and writer -->
-        <p-d on="match-found" to="purr-sist{storeId:target.value.storeId}" m="2" debug skip-init></p-d>
+        <p-d on="match-found" to="purr-sist{storeId:target.value.storeId}" m="2"  skip-init></p-d>
         <!-- Read stored history.state from remote database if saved -->
         <purr-sist read></purr-sist>
         <!-- If persisted history.state found, repopulate history.state -->
