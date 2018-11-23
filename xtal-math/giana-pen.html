@@ -6,80 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- <link rel="preloadmodule" href="node_modules/xtal-decorator/xtal-deco.js" as="script">
-    <link rel="preloadmodule" href="node_modules/p-d.p-u/p-u.js" as="script"> -->
-    <link rel="preloadmodule" href="dist/gian-pen-dep.iife.min.js" as="script">
-    <script type="module">
-        function init(e,t){if("complete"!==document.readyState)return void(document.onreadystatechange=function(){"complete"===document.readyState&&init(e,t)});const o=window.top;if(document.querySelectorAll('link[as="script"][rel="preloadmodule"]').forEach(e=>{const t=o.document.createElement("script");t.src=e.href,t.type="module",o.document.head.appendChild(t)}),window===o){const e=t.attachBehavior;return void(null!==e&&document.querySelectorAll(e.selector).forEach(t=>{e.attach(t,o)}))}const n=o.document.createElement("template");n.innerHTML=document.body.innerHTML;o.customElements.define(e,class extends o.HTMLElement{constructor(){super(),t.useShadow&&(n.content.cloneNode(!0),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(n.content.cloneNode(!0)))}connectedCallback(){const e=t.attachBehavior;if(t.useShadow)null!==e&&this.shadowRoot.querySelectorAll(e.selector).forEach(t=>{e.attach(t,o)});else{const t=n.content.cloneNode(!0);this.appendChild(t),null!==e&&this.querySelectorAll(e.selector).forEach(t=>{e.attach(t,o)})}}}),window.parent.document.querySelectorAll("iframe").forEach(e=>{e.contentWindow===window&&e.remove()})}export function deframe(e,t={useShadow:!0,attachBehavior:null}){init(e,t)}
-        export function attach(target, win) {
-    win.customElements.whenDefined('xtal-deco').then(() => {
-        win.customElements.get('xtal-deco').attachBehavior(target, {
-            on: {
-                click: function (e) {
-                    const ds = e.target.dataset;
-                    if (ds.num) {
-                        if (this.expectNewNumber) {
-                            this.currentNum = ds.num;
-                            this.expectNewNumber = false;
-                        }
-                        else {
-                            this.currentNum += ds.num;
-                        }
-                    }
-                    else if (ds.ops) {
-                        this.lastOp = ds.ops;
-                        this.lhsOperand = parseFloat(this.currentNum);
-                        this.expectNewNumber = true;
-                    }
-                    else {
-                        switch (e.target.id) {
-                            case 'equals':
-                                const oldNum = this.currentNum;
-                                this.currentNum = '';
-                                switch (this.lastOp) {
-                                    case 'plus':
-                                        this.answerNum = this.lhsOperand + parseFloat(oldNum);
-                                        break;
-                                    case 'times':
-                                        this.answerNum = this.lhsOperand * parseFloat(oldNum);
-                                        break;
-                                    case 'minus':
-                                        this.answerNum = this.lhsOperand - parseFloat(oldNum);
-                                        break;
-                                    case 'divided by':
-                                        this.answerNum = this.lhsOperand / parseFloat(oldNum);
-                                }
-                                this.lhsOperand = 0;
-                                break;
-                            case 'clear':
-                                console.log('clear');
-                                this.lhsOperand = 0;
-                                this.answerNum = 0;
-                                this.currentNum = '';
-                                break;
-                        }
-                    }
-                }
-            },
-            props: {
-                lhsOperand: 0,
-                expectNewNumber: false,
-                currentNum: '',
-                answerNum: 0,
-                lastOp: '',
-            }
-        });
-    });
-}
-//# sourceMappingURL=giana-pen.js.map
-        deframe('xtal-math-giana-pen',{
-            attachBehavior: {
-                selector: '.html',
-                attach: attach
-            }
-        });
-    </script>
-    <!--https://codepen.io/giana/pen/GJMBEv-->
 </head>
 
 <body>
@@ -458,5 +384,75 @@
         }
     </style>
 </body>
-
+<link rel="preloadmodule" href="dist/gian-pen-dep.iife.min.js" as="script">
+<script type="module">
+    function init(e,t){if("complete"!==document.readyState)return void(document.onreadystatechange=function(){"complete"===document.readyState&&init(e,t)});const o=window.top;if(document.querySelectorAll('link[as="script"][rel="preloadmodule"]').forEach(e=>{const t=o.document.createElement("script");t.src=e.href,t.type="module",o.document.head.appendChild(t)}),window===o){const e=t.attachBehavior;return void(null!==e&&document.querySelectorAll(e.selector).forEach(t=>{e.attach(t,o)}))}const n=o.document.createElement("template");n.innerHTML=document.body.innerHTML;o.customElements.define(e,class extends o.HTMLElement{constructor(){super(),t.useShadow&&(n.content.cloneNode(!0),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(n.content.cloneNode(!0)))}connectedCallback(){const e=t.attachBehavior;if(t.useShadow)null!==e&&this.shadowRoot.querySelectorAll(e.selector).forEach(t=>{e.attach(t,o)});else{const t=n.content.cloneNode(!0);this.appendChild(t),null!==e&&this.querySelectorAll(e.selector).forEach(t=>{e.attach(t,o)})}}}),window.parent.document.querySelectorAll("iframe").forEach(e=>{e.contentWindow===window&&e.remove()})}export function deframe(e,t={useShadow:!0,attachBehavior:null}){init(e,t)}
+    export function attach(target, win) {
+win.customElements.whenDefined('xtal-deco').then(() => {
+    win.customElements.get('xtal-deco').attachBehavior(target, {
+        on: {
+            click: function (e) {
+                const ds = e.target.dataset;
+                if (ds.num) {
+                    if (this.expectNewNumber) {
+                        this.currentNum = ds.num;
+                        this.expectNewNumber = false;
+                    }
+                    else {
+                        this.currentNum += ds.num;
+                    }
+                }
+                else if (ds.ops) {
+                    this.lastOp = ds.ops;
+                    this.lhsOperand = parseFloat(this.currentNum);
+                    this.expectNewNumber = true;
+                }
+                else {
+                    switch (e.target.id) {
+                        case 'equals':
+                            const oldNum = this.currentNum;
+                            this.currentNum = '';
+                            switch (this.lastOp) {
+                                case 'plus':
+                                    this.answerNum = this.lhsOperand + parseFloat(oldNum);
+                                    break;
+                                case 'times':
+                                    this.answerNum = this.lhsOperand * parseFloat(oldNum);
+                                    break;
+                                case 'minus':
+                                    this.answerNum = this.lhsOperand - parseFloat(oldNum);
+                                    break;
+                                case 'divided by':
+                                    this.answerNum = this.lhsOperand / parseFloat(oldNum);
+                            }
+                            this.lhsOperand = 0;
+                            break;
+                        case 'clear':
+                            console.log('clear');
+                            this.lhsOperand = 0;
+                            this.answerNum = 0;
+                            this.currentNum = '';
+                            break;
+                    }
+                }
+            }
+        },
+        props: {
+            lhsOperand: 0,
+            expectNewNumber: false,
+            currentNum: '',
+            answerNum: 0,
+            lastOp: '',
+        }
+    });
+});
+}
+//# sourceMappingURL=giana-pen.js.map
+    deframe('xtal-math-giana-pen',{
+        attachBehavior: {
+            selector: '.html',
+            attach: attach
+        }
+    });
+</script>
 </html>
