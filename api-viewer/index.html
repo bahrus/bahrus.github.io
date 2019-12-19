@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="margin: 0px;padding: 0px;">
+    <api-viewer id=apiViewer></api-viewer>
+    <script type=module src=https://unpkg.com/api-viewer-element@0.3.3/lib/api-viewer.js?module></script>
+    <script>
+        const searchParams  = new URLSearchParams(location.search);
+        const package = searchParams.get('npmPackage');
+        if(package){   
+            apiViewer.src =  `https://unpkg.com/${package}/custom-elements.json`;
+        }
+        
+    </script>
+
+</body>
+</html>
