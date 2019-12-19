@@ -19,7 +19,7 @@
         if(jsPath){
             const script = document.createElement('script');
             script.type = 'module';
-            script.src = `https://unpkg.com/${package}/${path}`;
+            script.src = `https://unpkg.com/${package}/${jsPath}?module`;
             document.head.appendChild(script);
         }
     </script>
