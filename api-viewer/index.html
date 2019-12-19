@@ -15,7 +15,13 @@
         if(package){   
             apiViewer.src =  `https://unpkg.com/${package}/custom-elements.json`;
         }
-        
+        const jsPath = searchParams.get('jsPath');
+        if(jsPath){
+            const script = document.createElement('script');
+            script.type = 'module';
+            script.src = `https://unpkg.com/${package}/${path}`;
+            document.head.appendChild(script);
+        }
     </script>
 
 </body>
