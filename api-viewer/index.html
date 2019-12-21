@@ -12,8 +12,9 @@
     <script>
         const searchParams  = new URLSearchParams(location.search);
         const package = searchParams.get('npmPackage');
+        const jsonPath = searchParams.get('jsonPath') || 'custom-elements.json';
         if(package){   
-            apiViewer.src =  `https://unpkg.com/${package}/custom-elements.json`;
+            apiViewer.src =  `https://unpkg.com/${package}/${jsonPath}`;
         }
         const jsPath = searchParams.get('jsPath');
         if(jsPath){
