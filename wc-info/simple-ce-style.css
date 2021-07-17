@@ -44,8 +44,9 @@ table.narrow td{
 table.narrow .description-label{
     text-decoration: underline;
 }
-if-diff[lazy-delay]{
-    min-height:1000px;
+
+lazy-mt:not([data-cloned-is="true"]){
+	min-height:1000px;
     display:block;
 }
 
